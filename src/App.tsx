@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState, useEfect } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import './App.css';
 
@@ -7,7 +8,7 @@ interface jokeData {
   "error": boolean;
   "category": string;
   "type": string;
-  "joke": string;
+  "joke"?: string;
   "flags": {
     "nsfw": boolean,
     "religious": boolean,
@@ -19,18 +20,52 @@ interface jokeData {
   "id": number;
   "safe": boolean;
   "lang": string;
-}
+  'setup'?: string;
+  'delivery'?: string;
+};
 
+const BASE_URL = 'https://v2.jokeapi.dev';
 
 export const App = () => {
-  const [joke, setJoke] = useState(initialState)
+  const [joke, setJoke] = useState<jokeData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const handleClick = () => setJoke(null);
+
+  useEffect(() => {
+    const getJoke = async () => {
+      if (!joke) {
+        setIsLoading(() => true);
+        const response = await axios.get(`${BASE_URL}/joke/any`);
+        const newJoke: jokeData = response.data;
+        console.log(newJoke);
+        setJoke(newJoke);
+        setIsLoading(() => false);
+      }
+    }
+    getJoke();
+  }, [joke]);
 
   return (
     <div className="App">
       <h1>Got Jokes</h1>
-      <Button variant="primary">Make Me Laugh!</Button>
-
-      {/* TODO App goes here */}
+      <Button
+        variant="primary"
+        onClick={handleClick}
+        disabled={isLoading ? true : false}>
+        Make Me Laugh!
+        </Button>
+      {!isLoading && joke?.type === 'twopart' &&
+        <p>
+          {joke?.setup}
+          <br />
+          {joke?.delivery}
+        </p>
+      }
+      {!isLoading && joke?.type === 'single' &&
+        <p>
+          {joke?.joke}
+        </p>
+      }
     </div>
   );
 }
