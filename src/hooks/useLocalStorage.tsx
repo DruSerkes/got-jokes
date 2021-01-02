@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { jokeData } from '../types';
 
-export const useLocalStorage = (key, initialState = []) => {
+export const useLocalStorage = (key: string, initialState: jokeData[] = []): [jokeData[], React.Dispatch<jokeData[]>] => {
 	const [items, setItems] = useState(() => {
 		let value;
 		try {

@@ -8,21 +8,27 @@ import { jokeData } from '../types';
 interface SaveJokeProps {
 	joke?: jokeData;
 	viewingFavorites: boolean;
+	saveFavoriteJoke: () => void;
 }
 
-export const SaveJoke = ({ joke, viewingFavorites }: SaveJokeProps) => {
+export const SaveJoke = ({ joke, viewingFavorites, saveFavoriteJoke }: SaveJokeProps) => {
 	const [showModal, setShowModal] = useState(false);
 
 	const handleShow = () => setShowModal(true);
 	const handleClose = () => setShowModal(false);
 
 	const handleSaveJoke = () => {
-		let favorites: jokeData[] | string = localStorage.getItem('favorites') || [];
-		if (favorites && typeof favorites === 'string') favorites = JSON.parse(favorites);
-		if (joke) {
-			const newFavorites = [joke, ...favorites];
-			localStorage.setItem('favorites', JSON.stringify(newFavorites));
-		}
+		// let favorites: jokeData[] | string = localStorage.getItem('favorites') || [];
+		// if (favorites && typeof favorites === 'string') favorites = JSON.parse(favorites);
+		// if (joke) {
+		// 	const newFavorites = [joke, ...favorites];
+		// 	localStorage.setItem('favorites', JSON.stringify(newFavorites));
+		// }
+		// if (!joke) return;
+		// setFavorites((favs: React.ComponentState) => {
+		// 	return [joke, ...favs];
+		// });
+		saveFavoriteJoke();
 		handleClose();
 	};
 

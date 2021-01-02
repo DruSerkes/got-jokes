@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
-import { SaveJoke } from './SaveJoke/SaveJoke'
+import { SaveJoke } from './SaveJoke/SaveJoke';
+import { Favorites } from './Favorites/Favorites';
 import './App.css';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -13,7 +15,7 @@ const BASE_URL = 'https://v2.jokeapi.dev';
 
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
-  const [favorites, setFavorites] = useState<jokeData[]>([]);
+  const [favorites, setFavorites] = useLocalStorage('favorites');
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
   const handleShowFavorites = () => setViewingFavorites(true);
@@ -21,16 +23,21 @@ export const App = () => {
     setJoke(undefined);
     setViewingFavorites(false);
   };
+  const saveFavoriteJoke = () => {
+    if (!joke) return;
+    const newFavorites: jokeData[] = [joke, ...favorites];
+    setFavorites(newFavorites);
+  };
 
-  // On mount, sync localStorage and state favorites
-  useEffect(() => {
-    const favsFromLocalStorage = localStorage.getItem('favorites');
-    if (!favsFromLocalStorage) {
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-    } else {
-      setFavorites(JSON.parse(favsFromLocalStorage));
-    }
-  }, [favorites]);
+  // // On mount, sync localStorage and state favorites
+  // useEffect(() => {
+  //   const favsFromLocalStorage = localStorage.getItem('favorites');
+  //   if (!favsFromLocalStorage) {
+  //     localStorage.setItem('favorites', JSON.stringify(favorites));
+  //   } else {
+  //     setFavorites(JSON.parse(favsFromLocalStorage));
+  //   }
+  // }, [favorites]);
 
   // Get a joke if you don't have one
   useEffect(() => {
@@ -59,7 +66,7 @@ export const App = () => {
         Make Me Laugh!
         </Button>
 
-      <SaveJoke joke={joke} viewingFavorites={viewingFavorites} />
+      <SaveJoke joke={joke} viewingFavorites={viewingFavorites} saveFavoriteJoke={saveFavoriteJoke} />
 
       <Button
         variant="secondary"
@@ -71,6 +78,8 @@ export const App = () => {
       <Joke isLoading={isLoading} joke={joke} />
 
       {/* Add favorites component */}
+      <Favorites favorites={favorites} />
+
     </Container>
   );
 }
