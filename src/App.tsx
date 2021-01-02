@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
 import './App.css';
+import Container from 'react-bootstrap/esm/Container';
 
 
 const BASE_URL = 'https://v2.jokeapi.dev';
@@ -29,17 +30,18 @@ export const App = () => {
   }, [joke]);
 
   return (
-    <div className="App">
-      <h1 className='h1'>Got Jokes</h1>
+    <Container className="App">
+      <h1 className='h1 my-3'>Got Jokes</h1>
 
       <Button
         variant="primary"
         onClick={handleClick}
-        disabled={isLoading ? true : false}>
+        disabled={isLoading ? true : false}
+        className='my-3'>
         Make Me Laugh!
         </Button>
-        
+
       <Joke isLoading={isLoading} joke={joke} />
-    </div>
+    </Container>
   );
 }
