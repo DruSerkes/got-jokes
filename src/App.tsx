@@ -4,6 +4,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
+import { SaveJoke } from './SaveJoke/SaveJoke'
 import './App.css';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -40,6 +41,7 @@ export const App = () => {
         className='my-3'>
         Make Me Laugh!
         </Button>
+      <SaveJoke joke={joke} isLoading={isLoading} />
 
       <Joke isLoading={isLoading} joke={joke} />
     </Container>

@@ -19,8 +19,10 @@ export const SaveJoke = ({ joke, isLoading }: SaveJokeProps) => {
 	const handleSaveJoke = () => {
 		let favorites: jokeData[] | string = localStorage.getItem('favorites') || [];
 		if (favorites && typeof favorites === 'string') favorites = JSON.parse(favorites);
-		if (joke) favorites.push(joke);
-		localStorage.setItem('favorites', JSON.stringify(favorites));
+		if (joke) {
+			const newFavorites = [joke, ...favorites];
+			localStorage.setItem('favorites', JSON.stringify(newFavorites));
+		}
 		handleClose();
 	};
 
@@ -32,7 +34,7 @@ export const SaveJoke = ({ joke, isLoading }: SaveJokeProps) => {
 				disabled={isLoading ? true : false}
 				className='my-3'>
 				Save to Favorites
-      </Button>
+      		</Button>
 
 			<Modal show={showModal} onHide={handleClose}>
 				<Modal.Header closeButton>
@@ -42,10 +44,10 @@ export const SaveJoke = ({ joke, isLoading }: SaveJokeProps) => {
 				<Modal.Footer>
 					<Button variant="outline-danger" onClick={handleClose}>
 						Cancel
-          </Button>
+          			</Button>
 					<Button variant="success" onClick={handleSaveJoke}>
 						Save
-          </Button>
+          			</Button>
 				</Modal.Footer>
 			</Modal>
 		</>
