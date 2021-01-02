@@ -27,6 +27,7 @@ export const App = () => {
     if (!joke) return;
     const newFavorites: jokeData[] = [joke, ...favorites];
     setFavorites(newFavorites);
+    setJoke(undefined)
   };
 
   // Get a joke if you don't have one

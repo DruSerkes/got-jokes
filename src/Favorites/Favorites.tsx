@@ -11,7 +11,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     const generateFav = (joke: jokeData) => {
         if (joke.type === 'twopart') {
             return (
-                <Col>
+                <Col className='my-3'>
                     {joke?.setup}
                     <br />
                     {joke?.delivery}
@@ -19,7 +19,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
             );
         } else {
             return (
-                <Col>
+                <Col className='my-3'>
                     {joke?.joke}
                 </Col>
             );
