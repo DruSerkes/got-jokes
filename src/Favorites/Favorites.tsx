@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { jokeData } from '../types';
-import Col from 'react-bootstrap/Col';
 
 interface FavoritesProps {
     favorites?: jokeData[];
@@ -11,17 +10,17 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     const generateFav = (joke: jokeData) => {
         if (joke.type === 'twopart') {
             return (
-                <Col className='my-3'>
+                <li className='py-3 list-group-item-dark border-bottom border-dark'>
                     {joke?.setup}
                     <br />
                     {joke?.delivery}
-                </Col>
+                </li>
             );
         } else {
             return (
-                <Col className='my-3'>
+                <li className='py-3 list-group-item-dark border-bottom border-dark'>
                     {joke?.joke}
-                </Col>
+                </li>
             );
         };
     };
@@ -29,7 +28,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     return (
         <>
             { viewingFavorites &&
-                (<ul className='Favorites'>
+                (<ul className='Favorites list-group'>
                     {favorites?.map(fav => generateFav(fav))}
                 </ul>)
             }
