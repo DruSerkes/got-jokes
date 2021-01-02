@@ -14,11 +14,11 @@ const BASE_URL = 'https://v2.jokeapi.dev';
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  const [showFavorites, setShowFavorites] = useState(false);
-  const handleShowFavorites = () => setShowFavorites(true);
+  const [viewingFavorites, setViewingFavorites] = useState(false);
+  const handleShowFavorites = () => setViewingFavorites(true);
   const handleGetJoke = () => {
     setJoke(undefined);
-    setShowFavorites(false);
+    setViewingFavorites(false);
   };
 
 
@@ -47,17 +47,18 @@ export const App = () => {
         className='m-3'>
         Make Me Laugh!
         </Button>
-      <SaveJoke joke={joke} isLoading={isLoading} />
 
-      <Joke isLoading={isLoading} joke={joke} />
+      <SaveJoke joke={joke} viewingFavorites={viewingFavorites} />
 
-      {/* Add Btn to show favorites */}
       <Button
         variant="secondary"
         onClick={handleShowFavorites}
         className='m-3'>
         Show my Favorites
         </Button>
+
+      <Joke isLoading={isLoading} joke={joke} />
+
       {/* Add favorites component */}
     </Container>
   );

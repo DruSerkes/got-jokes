@@ -7,10 +7,10 @@ import { jokeData } from '../types';
 
 interface SaveJokeProps {
 	joke?: jokeData;
-	isLoading: boolean;
+	viewingFavorites: boolean;
 }
 
-export const SaveJoke = ({ joke, isLoading }: SaveJokeProps) => {
+export const SaveJoke = ({ joke, viewingFavorites }: SaveJokeProps) => {
 	const [showModal, setShowModal] = useState(false);
 
 	const handleShow = () => setShowModal(true);
@@ -31,7 +31,7 @@ export const SaveJoke = ({ joke, isLoading }: SaveJokeProps) => {
 			<Button
 				variant="info"
 				onClick={handleShow}
-				disabled={isLoading ? true : false}
+				disabled={viewingFavorites ? true : false}
 				className='my-3'>
 				Save to Favorites
       		</Button>
