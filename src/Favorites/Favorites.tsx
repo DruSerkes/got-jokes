@@ -10,7 +10,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     const generateFav = (joke: jokeData) => {
         if (joke.type === 'twopart') {
             return (
-                <li className='py-3 list-group-item-dark border-bottom border-dark'>
+                <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
                     {joke?.setup}
                     <br />
                     {joke?.delivery}
@@ -18,7 +18,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
             );
         } else {
             return (
-                <li className='py-3 list-group-item-dark border-bottom border-dark'>
+                <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
                     {joke?.joke}
                 </li>
             );
@@ -28,7 +28,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     return (
         <>
             { viewingFavorites &&
-                (<ul className='Favorites list-group'>
+                (<ul className='Favorites rounded list-group'>
                     {favorites?.map(fav => generateFav(fav))}
                 </ul>)
             }
