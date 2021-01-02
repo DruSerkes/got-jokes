@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Joke tests renders without breaking and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Joke container"
+  >
+    <div
+      class="row"
+    >
+      test joke
+    </div>
+  </div>
+</DocumentFragment>
+`;
