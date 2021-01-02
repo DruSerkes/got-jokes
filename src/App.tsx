@@ -13,6 +13,7 @@ const BASE_URL = 'https://v2.jokeapi.dev';
 
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
+  const [favorites, setFavorites] = useState<jokeData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
   const handleShowFavorites = () => setViewingFavorites(true);
@@ -21,7 +22,17 @@ export const App = () => {
     setViewingFavorites(false);
   };
 
+  // On mount, sync localStorage and state favorites
+  useEffect(() => {
+    const favsFromLocalStorage = localStorage.getItem('favorites');
+    if (!favsFromLocalStorage) {
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      setFavorites(JSON.parse(favsFromLocalStorage));
+    }
+  }, [favorites]);
 
+  // Get a joke if you don't have one
   useEffect(() => {
     const getJoke = async () => {
       if (!joke) {
