@@ -17,7 +17,7 @@ export const SaveJoke = ({ joke, isLoading }: SaveJokeProps) => {
 	const handleClose = () => setShowModal(false);
 
 	const handleSaveJoke = () => {
-		const favorites: jokeData[] = JSON.parse(localStorage.get('favorites')) || [];
+		const favorites: jokeData[] = JSON.parse(localStorage.getItem('favorites')) || [];
 		if (joke) favorites.push(joke);
 		localStorage.setItem('favorites', JSON.stringify(favorites));
 		handleClose();
