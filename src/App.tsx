@@ -46,13 +46,13 @@ export const App = () => {
 
   return (
     <Container className="App">
-      <h1 className='h1 my-3'>Got Jokes</h1>
+      <h1 className='h1 my-4'>Got Jokes</h1>
 
       <Button
         variant="primary"
         onClick={handleGetJoke}
         disabled={isLoading ? true : false}
-        className='m-3'>
+        className='my-4 mx-2'>
         Make Me Laugh!
         </Button>
 
@@ -61,12 +61,13 @@ export const App = () => {
       <Button
         variant="secondary"
         onClick={handleShowFavorites}
-        className='m-3'>
+        className='my-4 mx-2'>
         {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
       </Button>
 
-      <Joke isLoading={isLoading} joke={joke} />
-
+      {!viewingFavorites &&
+        (<Joke isLoading={isLoading} joke={joke} />)
+      }
       <Favorites favorites={favorites} viewingFavorites={viewingFavorites} />
 
     </Container>
