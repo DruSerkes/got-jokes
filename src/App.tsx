@@ -3,15 +3,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { jokeData } from './types';
+import { Joke } from './Joke/Joke'
 import './App.css';
 
 
 const BASE_URL = 'https://v2.jokeapi.dev';
 
 export const App = () => {
-  const [joke, setJoke] = useState<jokeData | null>(null);
+  const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  const handleClick = () => setJoke(null);
+  const handleClick = () => setJoke(undefined);
 
   useEffect(() => {
     const getJoke = async () => {
@@ -29,25 +30,16 @@ export const App = () => {
 
   return (
     <div className="App">
-      <h1>Got Jokes</h1>
+      <h1 className='h1'>Got Jokes</h1>
+
       <Button
         variant="primary"
         onClick={handleClick}
         disabled={isLoading ? true : false}>
         Make Me Laugh!
         </Button>
-      {!isLoading && joke?.type === 'twopart' &&
-        <p>
-          {joke?.setup}
-          <br />
-          {joke?.delivery}
-        </p>
-      }
-      {!isLoading && joke?.type === 'single' &&
-        <p>
-          {joke?.joke}
-        </p>
-      }
+        
+      <Joke isLoading={isLoading} joke={joke} />
     </div>
   );
 }
