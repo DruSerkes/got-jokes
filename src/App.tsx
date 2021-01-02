@@ -97,7 +97,7 @@ export const App = () => {
             Cancel
           			</Button>
           <Button variant="danger" onClick={handleClearFavorites}>
-            Clear
+            Remove All
           			</Button>
         </Modal.Footer>
       </Modal>
