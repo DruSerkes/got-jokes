@@ -7,6 +7,7 @@ import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
 import { SaveJoke } from './SaveJoke/SaveJoke';
 import { Favorites } from './Favorites/Favorites';
+import Modal from 'react-bootstrap/Modal';
 import './App.css';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -18,7 +19,15 @@ export const App = () => {
   const [favorites, setFavorites] = useLocalStorage('favorites');
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
   const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
+  const handleClose = () => setShowRemoveModal(false);
+  const handleShowRemoveModal = () => setShowRemoveModal(true);
+  const handleClearFavorites = () => {
+    setFavorites([])
+    setViewingFavorites(false);
+    setShowRemoveModal(false);
+  };
   const handleGetJoke = () => {
     setJoke(undefined);
     setViewingFavorites(false);
@@ -65,6 +74,33 @@ export const App = () => {
         className='my-4 mx-2'>
         {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
       </Button>
+
+      {viewingFavorites && !!favorites.length &&
+        (<Button
+          variant="warning"
+          onClick={handleShowRemoveModal}
+          className='my-4 mx-2'>
+          Clear Favorites
+        </Button>)
+      }
+      <Modal show={showRemoveModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to clear your favorites?
+          <br />
+          <small className="text-warning">This action cannot be undone!!</small>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-secondary" onClick={handleClose}>
+            Cancel
+          			</Button>
+          <Button variant="danger" onClick={handleClearFavorites}>
+            Clear
+          			</Button>
+        </Modal.Footer>
+      </Modal>
 
       {!viewingFavorites &&
         (<Joke isLoading={isLoading} joke={joke} />)
