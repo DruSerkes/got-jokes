@@ -77,8 +77,7 @@ export const App = () => {
 
       <Joke isLoading={isLoading} joke={joke} />
 
-      {/* Add favorites component */}
-      <Favorites favorites={favorites} />
+      <Favorites favorites={favorites} viewingFavorites={viewingFavorites} />
 
     </Container>
   );

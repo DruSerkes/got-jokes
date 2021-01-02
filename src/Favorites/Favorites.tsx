@@ -3,10 +3,11 @@ import { jokeData } from '../types';
 import Col from 'react-bootstrap/Col';
 
 interface FavoritesProps {
-    favorites?: jokeData[]
+    favorites?: jokeData[];
+    viewingFavorites: boolean;
 }
 
-export const Favorites = ({ favorites }: FavoritesProps) => {
+export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     const generateFav = (joke: jokeData) => {
         if (joke.type === 'twopart') {
             return (
@@ -26,8 +27,12 @@ export const Favorites = ({ favorites }: FavoritesProps) => {
     };
 
     return (
-        <ul className='Favorites'>
-            {favorites?.map(fav => generateFav(fav))}
-        </ul>
+        <>
+            { viewingFavorites &&
+                (<ul className='Favorites'>
+                    {favorites?.map(fav => generateFav(fav))}
+                </ul>)
+            }
+        </>
     )
 }
