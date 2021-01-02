@@ -14,6 +14,9 @@ import Container from 'react-bootstrap/esm/Container';
 
 const BASE_URL = 'https://v2.jokeapi.dev';
 
+
+// TODO add ability to remove single joke from favorites 
+// TODO clean up main App component 
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
@@ -73,9 +76,8 @@ export const App = () => {
 
       <RemoveFavorites clearFavorites={clearFavorites} haveFavorites={!!favorites.length} viewingFavorites={viewingFavorites} />
 
-      {!viewingFavorites &&
-        (<Joke isLoading={isLoading} joke={joke} />)
-      }
+      {!viewingFavorites && (<Joke isLoading={isLoading} joke={joke} />)}
+
       <Favorites favorites={favorites} viewingFavorites={viewingFavorites} />
 
     </Container>
