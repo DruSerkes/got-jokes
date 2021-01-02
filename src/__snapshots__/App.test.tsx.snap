@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App tests renders without breaking and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App container"
+  >
+    <h1
+      class="h1 my-3"
+    >
+      Got Jokes
+    </h1>
+    <button
+      class="my-3 btn btn-primary"
+      disabled=""
+      type="button"
+    >
+      Make Me Laugh!
+    </button>
+  </div>
+</DocumentFragment>
+`;
