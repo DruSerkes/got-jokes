@@ -8,7 +8,6 @@ import { Joke } from './Joke/Joke'
 import { SaveJoke } from './SaveJoke/SaveJoke';
 import { Favorites } from './Favorites/Favorites';
 import { RemoveFavorites } from './RemoveFavorites/RemoveFavorites';
-// import Modal from 'react-bootstrap/Modal';
 import './App.css';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -20,10 +19,7 @@ export const App = () => {
   const [favorites, setFavorites] = useLocalStorage('favorites');
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
-  // const [showRemoveModal, setShowRemoveModal] = useState(false);
   const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
-  // const handleClose = () => setShowRemoveModal(false);
-  // const handleShowRemoveModal = () => setShowRemoveModal(true);
   const clearFavorites = () => {
     setFavorites([])
     setViewingFavorites(false);
