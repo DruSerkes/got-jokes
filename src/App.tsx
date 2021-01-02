@@ -18,7 +18,7 @@ export const App = () => {
   const [favorites, setFavorites] = useLocalStorage('favorites');
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
-  const handleShowFavorites = () => setViewingFavorites(true);
+  const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
   const handleGetJoke = () => {
     setJoke(undefined);
     setViewingFavorites(false);
@@ -28,16 +28,6 @@ export const App = () => {
     const newFavorites: jokeData[] = [joke, ...favorites];
     setFavorites(newFavorites);
   };
-
-  // // On mount, sync localStorage and state favorites
-  // useEffect(() => {
-  //   const favsFromLocalStorage = localStorage.getItem('favorites');
-  //   if (!favsFromLocalStorage) {
-  //     localStorage.setItem('favorites', JSON.stringify(favorites));
-  //   } else {
-  //     setFavorites(JSON.parse(favsFromLocalStorage));
-  //   }
-  // }, [favorites]);
 
   // Get a joke if you don't have one
   useEffect(() => {
@@ -72,8 +62,8 @@ export const App = () => {
         variant="secondary"
         onClick={handleShowFavorites}
         className='m-3'>
-        Show my Favorites
-        </Button>
+        {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
+      </Button>
 
       <Joke isLoading={isLoading} joke={joke} />
 
