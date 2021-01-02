@@ -17,6 +17,7 @@ const BASE_URL = 'https://v2.jokeapi.dev';
 
 // TODO add ability to remove single joke from favorites 
 // TODO clean up main App component 
+// TODO add tests 
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
