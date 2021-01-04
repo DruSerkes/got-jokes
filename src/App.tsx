@@ -15,9 +15,13 @@ import Container from 'react-bootstrap/esm/Container';
 const BASE_URL = 'https://v2.jokeapi.dev';
 
 
-// TODO add ability to remove single joke from favorites 
-// TODO clean up main App component 
-// TODO add tests 
+// TODO add ability to remove single joke from favorites - update joke to be in context instead of state? 
+
+// TODO clean up main App component:
+/* 
+    1. convert viewingFavorites, isLoading ... to context with use reducer 
+    2. create a component "App-Buttons" for the 4 buttons below 
+*/
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
