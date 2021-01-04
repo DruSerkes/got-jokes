@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { jokeData } from '../types';
+import './Favorite.css';
 
 interface FavoritesProps {
     fav: jokeData;
