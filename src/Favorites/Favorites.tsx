@@ -28,9 +28,13 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
     return (
         <>
             { viewingFavorites &&
-                (<ul className='Favorites rounded list-group'>
-                    {favorites?.map(fav => generateFav(fav))}
-                </ul>)
+                (<>
+                    <h3>Favorites</h3>
+                    <ul className='Favorites rounded list-group'>
+                        {favorites?.map(fav => generateFav(fav))}
+                    </ul>
+                </>
+                )
             }
         </>
     )
