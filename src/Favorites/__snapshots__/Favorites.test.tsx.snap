@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites tests should render and match snapshot 1`] = `
+<DocumentFragment>
+  <h3>
+    Favorites
+  </h3>
+  <ul
+    class="Favorites rounded list-group my-3"
+  >
+    <li
+      class="py-3 list-group-item-dark border-bottom rounded border-dark"
+    >
+      test joke
+    </li>
+  </ul>
+</DocumentFragment>
+`;

@@ -6,16 +6,28 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
     class="App container"
   >
     <h1
-      class="h1 my-3"
+      class="h1 my-4"
     >
       Got Jokes
     </h1>
     <button
-      class="my-3 btn btn-primary"
+      class="my-4 mx-2 btn btn-primary"
       disabled=""
       type="button"
     >
       Make Me Laugh!
+    </button>
+    <button
+      class="mx-2 my-4 btn btn-info"
+      type="button"
+    >
+      Save to Favorites
+    </button>
+    <button
+      class="my-4 mx-2 btn btn-secondary"
+      type="button"
+    >
+      Show my Favorites
     </button>
   </div>
 </DocumentFragment>

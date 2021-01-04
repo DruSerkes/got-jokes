@@ -14,7 +14,7 @@ export const Favorites = ({ favorites, viewingFavorites }: FavoritesProps) => {
                 (<>
                     <h3>Favorites</h3>
                     <ul className='Favorites rounded list-group my-3'>
-                        {favorites?.map(fav => <Favorite fav={fav} />)}
+                        {favorites?.map(fav => <Favorite key={fav.id} fav={fav} />)}
                     </ul>
                 </>
                 )
