@@ -34,7 +34,7 @@ export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, setJo
                 variant="primary"
                 onClick={handleGetJoke}
                 disabled={isLoading ? true : false}
-                className='my-4 mx-2'>
+                className='my-4'>
                 Make Me Laugh!
             </Button>
 
@@ -43,7 +43,7 @@ export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, setJo
             <Button
                 variant="secondary"
                 onClick={handleShowFavorites}
-                className='my-4 mx-2'>
+                className='my-4'>
                 {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
             </Button>
 

@@ -24,7 +24,7 @@ export const RemoveFavorites = ({ viewingFavorites, haveFavorites, clearFavorite
                 (<Button
                     variant="warning"
                     onClick={handleShowRemoveModal}
-                    className='my-4 mx-2'>
+                    className='my-4'>
                     Clear Favorites
                 </Button>)
             }

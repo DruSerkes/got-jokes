@@ -28,7 +28,7 @@ export const SaveJoke = ({ joke, viewingFavorites, saveFavoriteJoke }: SaveJokeP
 				variant="info"
 				onClick={handleShow}
 				disabled={viewingFavorites ? true : false}
-				className='mx-2 my-4'>
+				className='my-4'>
 				Save to Favorites
       		</Button>
 
