@@ -20,7 +20,6 @@ const BASE_URL = 'https://v2.jokeapi.dev';
 // TODO clean up main App component:
 /* 
     1. convert viewingFavorites, isLoading ... to context with use reducer 
-    2. create a component "App-Buttons" for the 4 buttons below 
 */
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
