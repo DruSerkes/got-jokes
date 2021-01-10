@@ -15,7 +15,6 @@ import Container from 'react-bootstrap/esm/Container';
 const BASE_URL = 'https://v2.jokeapi.dev';
 
 
-// TODO add ability to remove single joke from favorites - update joke to be in context instead of state? 
 
 // TODO clean up main App component:
 /* 
