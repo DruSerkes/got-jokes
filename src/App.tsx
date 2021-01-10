@@ -15,12 +15,6 @@ import Container from 'react-bootstrap/esm/Container';
 
 const BASE_URL = 'https://v2.jokeapi.dev';
 
-
-
-// TODO clean up main App component:
-/* 
-    1. convert viewingFavorites, isLoading ... to context with use reducer 
-*/
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
