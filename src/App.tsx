@@ -8,6 +8,7 @@ import { Joke } from './Joke/Joke'
 import { SaveJoke } from './SaveJoke/SaveJoke';
 import { Favorites } from './Favorites/Favorites';
 import { RemoveFavorites } from './RemoveFavorites/RemoveFavorites';
+import { AppButtons } from './AppButtons/AppButtons';
 import './App.css';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -66,24 +67,16 @@ export const App = () => {
     <Container className="App">
       <h1 className='h1 my-4'>Got Jokes</h1>
 
-      <Button
-        variant="primary"
-        onClick={handleGetJoke}
-        disabled={isLoading ? true : false}
-        className='my-4 mx-2'>
-        Make Me Laugh!
-        </Button>
-
-      <SaveJoke joke={joke} viewingFavorites={viewingFavorites} saveFavoriteJoke={saveFavoriteJoke} />
-
-      <Button
-        variant="secondary"
-        onClick={handleShowFavorites}
-        className='my-4 mx-2'>
-        {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
-      </Button>
-
-      <RemoveFavorites clearFavorites={clearFavorites} haveFavorites={!!favorites.length} viewingFavorites={viewingFavorites} />
+      <AppButtons
+        viewingFavorites={viewingFavorites}
+        isLoading={isLoading}
+        joke={joke}
+        favorites={favorites}
+        handleGetJoke={handleGetJoke}
+        handleShowFavorites={handleShowFavorites}
+        saveFavoriteJoke={saveFavoriteJoke}
+        clearFavorites={clearFavorites}
+      />
 
       {!viewingFavorites && (<Joke isLoading={isLoading} joke={joke} />)}
 
