@@ -28,9 +28,14 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
   const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
-  const clearFavorites = () => {
-    setFavorites([])
-    setViewingFavorites(false);
+  const clearFavorites = (id: Number | String) => {
+    if (!id) {
+      setFavorites([])
+      setViewingFavorites(false);
+    } else {
+      const newfavorites = favorites.filter(fav => fav.id !== id);
+      setFavorites(newfavorites);
+    }
   };
   const handleGetJoke = () => {
     setJoke(undefined);
@@ -83,7 +88,7 @@ export const App = () => {
 
       {!viewingFavorites && (<Joke isLoading={isLoading} joke={joke} />)}
 
-      <Favorites favorites={favorites} viewingFavorites={viewingFavorites} />
+      <Favorites favorites={favorites} viewingFavorites={viewingFavorites} clearFavorites={clearFavorites} />
 
     </Container>
   );
