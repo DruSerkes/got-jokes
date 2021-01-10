@@ -5,11 +5,11 @@ import './Favorite.css';
 
 interface FavoritesProps {
     fav: jokeData;
-    clearFavorites: React.Dispatch<React.SetStateAction<jokeData[] | undefined>>;
+    clearFavorites: (id: Number) => void;
 }
 
 export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
-    const handleRemove = id => clearFavorites(id);
+    const handleRemove = () => clearFavorites(fav.id);
     const generateFav = (joke: jokeData) => {
         if (joke.type === 'twopart') {
             return (
@@ -19,7 +19,6 @@ export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
                     {joke?.delivery}
                     <Button
                         variant="outline-danger"
-                        id={fav.id}
                         onClick={handleRemove}
                     >
                         X
@@ -32,7 +31,6 @@ export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
                     {joke?.joke}
                     <Button
                         variant="outline-danger"
-                        id={fav.id}
                         onClick={handleRemove}
                     >
                         X

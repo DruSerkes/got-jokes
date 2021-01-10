@@ -28,7 +28,7 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
   const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
-  const clearFavorites = (id: Number | String) => {
+  const clearFavorites = (id?: Number) => {
     if (!id) {
       setFavorites([])
       setViewingFavorites(false);

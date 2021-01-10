@@ -5,7 +5,7 @@ import { Favorite } from '../Favorite/Favorite';
 interface FavoritesProps {
     favorites?: jokeData[];
     viewingFavorites: boolean;
-    clearFavorites: React.Dispatch<React.SetStateAction<jokeData[] | undefined>>;
+    clearFavorites: (id: Number) => void;
 }
 
 export const Favorites = ({ favorites, viewingFavorites, clearFavorites }: FavoritesProps) => {
