@@ -2,12 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
 import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
-import { SaveJoke } from './SaveJoke/SaveJoke';
 import { Favorites } from './Favorites/Favorites';
-import { RemoveFavorites } from './RemoveFavorites/RemoveFavorites';
 import { AppButtons } from './AppButtons/AppButtons';
 import './App.css';
 import Container from 'react-bootstrap/esm/Container';
