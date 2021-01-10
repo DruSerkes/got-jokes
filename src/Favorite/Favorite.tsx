@@ -20,6 +20,7 @@ export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
                     <Button
                         variant="outline-danger"
                         onClick={handleRemove}
+                        className="Favorite-removeButton"
                     >
                         X
                     </Button>
@@ -32,6 +33,7 @@ export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
                     <Button
                         variant="outline-danger"
                         onClick={handleRemove}
+                        className="Favorite-removeButton"
                     >
                         X
                     </Button>
