@@ -26,7 +26,6 @@ export const App = () => {
   const [favorites, setFavorites] = useLocalStorage('favorites');
   const [isLoading, setIsLoading] = useState(true);
   const [viewingFavorites, setViewingFavorites] = useState(false);
-  const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
   const clearFavorites = (id?: Number) => {
     if (!id) {
       setFavorites([])
@@ -35,16 +34,6 @@ export const App = () => {
       const newfavorites = favorites.filter(fav => fav.id !== id);
       setFavorites(newfavorites);
     }
-  };
-  const handleGetJoke = () => {
-    setJoke(undefined);
-    setViewingFavorites(false);
-  };
-  const saveFavoriteJoke = () => {
-    if (!joke) return;
-    const newFavorites: jokeData[] = [joke, ...favorites];
-    setFavorites(newFavorites);
-    setJoke(undefined)
   };
 
   // Get a joke if you don't have one
@@ -71,15 +60,15 @@ export const App = () => {
         isLoading={isLoading}
         joke={joke}
         favorites={favorites}
-        handleGetJoke={handleGetJoke}
-        handleShowFavorites={handleShowFavorites}
-        saveFavoriteJoke={saveFavoriteJoke}
+        setJoke={setJoke}
+        setViewingFavorites={setViewingFavorites}
+        setFavorites={setFavorites}
         clearFavorites={clearFavorites}
       />
 
       {!viewingFavorites && (<Joke isLoading={isLoading} joke={joke} />)}
 
-      <Favorites favorites={favorites} viewingFavorites={viewingFavorites} clearFavorites={clearFavorites} />
+      {viewingFavorites && <Favorites favorites={favorites} clearFavorites={clearFavorites} />}
 
     </Container>
   );

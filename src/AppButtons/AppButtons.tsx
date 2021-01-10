@@ -10,13 +10,24 @@ interface AppButtonsProps {
     isLoading: boolean;
     joke: jokeData | undefined;
     favorites: jokeData[];
-    handleGetJoke: () => void;
-    handleShowFavorites: () => void;
-    saveFavoriteJoke: () => void;
+    setJoke: React.Dispatch<React.SetStateAction<jokeData | undefined>>;
+    setViewingFavorites: React.Dispatch<React.SetStateAction<boolean>>;
+    setFavorites: React.Dispatch<jokeData[]>;
     clearFavorites: () => void;
 }
 
-export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, handleGetJoke, handleShowFavorites, saveFavoriteJoke, clearFavorites }: AppButtonsProps) => {
+export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, setJoke, setViewingFavorites, setFavorites, clearFavorites }: AppButtonsProps) => {
+    const handleShowFavorites = () => setViewingFavorites(!viewingFavorites);
+    const handleGetJoke = () => {
+        setJoke(undefined);
+        setViewingFavorites(false);
+    };
+    const saveFavoriteJoke = () => {
+        if (!joke) return;
+        const newFavorites: jokeData[] = [joke, ...favorites];
+        setFavorites(newFavorites);
+        setJoke(undefined)
+    };
     return (
         <ButtonGroup aria-label="Main App Buttons" className="Buttons">
             <Button
