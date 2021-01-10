@@ -12,6 +12,9 @@ import Container from 'react-bootstrap/esm/Container';
 
 const BASE_URL = 'https://v2.jokeapi.dev';
 
+// TODO 
+// 1. add AppButtons test
+// 2. update existing tests (snapshots, etc)
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
