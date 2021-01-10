@@ -1,3 +1,16 @@
 li {
     list-style-type: none;
+    position: relative;
+    padding: 2rem;
+}
+
+.Favorite-removeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+}
+
+.Favorite-removeButton:hover {
+    color: red !important;
 }

@@ -14,11 +14,13 @@ export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
         if (joke.type === 'twopart') {
             return (
                 <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
+                    {/* <span className="Favorite-text"> */}
                     {joke?.setup}
                     <br />
                     {joke?.delivery}
+                    {/* </span> */}
                     <Button
-                        variant="outline-danger"
+                        variant=""
                         onClick={handleRemove}
                         className="Favorite-removeButton"
                     >
@@ -29,9 +31,11 @@ export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
         } else {
             return (
                 <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
+                    {/* <span className="Favorite-text"> */}
                     {joke?.joke}
+                    {/* </span> */}
                     <Button
-                        variant="outline-danger"
+                        variant=""
                         onClick={handleRemove}
                         className="Favorite-removeButton"
                     >
