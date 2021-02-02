@@ -10,25 +10,34 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
     >
       Got Jokes
     </h1>
-    <button
-      class="my-4 mx-2 btn btn-primary"
-      disabled=""
-      type="button"
+    <div
+      aria-label="Main App Buttons"
+      class="Buttons btn-group"
+      role="group"
     >
-      Make Me Laugh!
-    </button>
-    <button
-      class="mx-2 my-4 btn btn-info"
-      type="button"
-    >
-      Save to Favorites
-    </button>
-    <button
-      class="my-4 mx-2 btn btn-secondary"
-      type="button"
-    >
-      Show my Favorites
-    </button>
+      <button
+        class="my-4 btn btn-primary"
+        disabled=""
+        type="button"
+      >
+        Make Me Laugh!
+      </button>
+      <button
+        class="my-4 btn btn-info"
+        type="button"
+      >
+        Save to Favorites
+      </button>
+      <button
+        class="my-4 btn btn-secondary"
+        type="button"
+      >
+        Show my Favorites
+      </button>
+      <h4>
+        You don't have any favorites!
+      </h4>
+    </div>
   </div>
 </DocumentFragment>
 `;
