@@ -12,6 +12,12 @@ exports[`Favorites tests should render and match snapshot 1`] = `
       class="py-3 list-group-item-dark border-bottom rounded border-dark"
     >
       test joke
+      <button
+        class="Favorite-removeButton btn"
+        type="button"
+      >
+        X
+      </button>
     </li>
   </ul>
 </DocumentFragment>

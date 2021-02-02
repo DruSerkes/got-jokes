@@ -23,3 +23,8 @@ export const testJoke = {
     'setup': 'test setup',
     'delivery': 'test delivery'
 };
+
+export const setJoke = jest.fn(() => console.log('setting joke'));
+export const setViewingFavorites = jest.fn(() => console.log('viewing favorites'));
+export const setFavorites = jest.fn(() => console.log('setting favorites'));
+export const clearFavorites = jest.fn(() => console.log('clearing favorites'));
