@@ -7,17 +7,17 @@ import { testJoke, clearFavorites } from '../setupTests';
 describe('Favorites tests', () => {
 
     it('should render and match snapshot', () => {
-        const { asFragment } = render(<Favorite fav={testJoke} clearFavorites={clearFavorites} />);
+        const { asFragment } = render(<Favorite joke={testJoke} clearFavorites={clearFavorites} />);
         expect(asFragment()).toMatchSnapshot();
     });
 
     it('should show a joke', () => {
-        const { getByText } = render(<Favorite fav={testJoke} clearFavorites={clearFavorites} />);
+        const { getByText } = render(<Favorite joke={testJoke} clearFavorites={clearFavorites} />);
         expect(getByText(testJoke.joke)).toBeInTheDocument();
     });
 
     it('should call clearFavorites', () => {
-        const { getByText } = render(<Favorite fav={testJoke} clearFavorites={clearFavorites} />);
+        const { getByText } = render(<Favorite joke={testJoke} clearFavorites={clearFavorites} />);
         const removeButton = getByText('X');
         fireEvent.click(removeButton);
         expect(clearFavorites).toHaveBeenCalledTimes(1);

@@ -4,43 +4,42 @@ import { jokeData } from '../types';
 import './Favorite.css';
 
 interface FavoritesProps {
-    fav: jokeData;
+    joke: jokeData;
     clearFavorites: (id: Number) => void;
 }
 
-export const Favorite = ({ fav, clearFavorites }: FavoritesProps) => {
-    const handleRemove = () => clearFavorites(fav.id);
-    const generateFav = (joke: jokeData) => {
-        if (joke.type === 'twopart') {
-            return (
-                <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
-                    {joke?.setup}
-                    <br />
-                    {joke?.delivery}
-                    <Button
-                        variant=""
-                        onClick={handleRemove}
-                        className="Favorite-removeButton"
-                    >
-                        X
+export const Favorite = ({ joke, clearFavorites }: FavoritesProps) => {
+    const handleRemove = () => clearFavorites(joke.id);
+    return (
+        <>
+            {joke.type === 'twopart'
+                ? (
+                    <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
+                        {joke?.setup}
+                        <br />
+                        {joke?.delivery}
+                        <Button
+                            variant=""
+                            onClick={handleRemove}
+                            className="Favorite-removeButton"
+                        >
+                            X
                     </Button>
-                </li>
-            );
-        } else {
-            return (
-                <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
-                    {joke?.joke}
-                    <Button
-                        variant=""
-                        onClick={handleRemove}
-                        className="Favorite-removeButton"
-                    >
-                        X
+                    </li>
+                )
+                : (
+                    <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
+                        {joke?.joke}
+                        <Button
+                            variant=""
+                            onClick={handleRemove}
+                            className="Favorite-removeButton"
+                        >
+                            X
                     </Button>
-                </li>
-            );
-        };
-    };
-
-    return generateFav(fav);
+                    </li>
+                )
+            }
+        </>
+    )
 }
