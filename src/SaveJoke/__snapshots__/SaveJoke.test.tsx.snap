@@ -3,7 +3,7 @@
 exports[`SaveJoke tests should render without breaking and match snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="my-3 btn btn-info"
+    class="my-4 btn btn-info"
     type="button"
   >
     Save to Favorites
