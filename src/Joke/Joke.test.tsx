@@ -1,29 +1,9 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Joke } from './Joke';
-
+import { testJoke } from '../setupTests';
 
 describe('Joke tests', () => {
-
-    const testJoke = {
-        "error": false,
-        "category": 'dark',
-        "type": 'single',
-        "joke": 'test joke',
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 13,
-        "safe": true,
-        "lang": 'en',
-        'setup': 'test setup',
-        'delivery': 'test delivery'
-    };
 
     it('renders without breaking and matches snapshot', () => {
         const { asFragment } = render(<Joke isLoading={false} joke={testJoke} />);
