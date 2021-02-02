@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppButtons tests should render and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-label="Main App Buttons"
+    class="Buttons btn-group"
+    role="group"
+  >
+    <button
+      class="my-4 btn btn-primary"
+      type="button"
+    >
+      Make Me Laugh!
+    </button>
+    <button
+      class="my-4 btn btn-info"
+      type="button"
+    >
+      Save to Favorites
+    </button>
+    <button
+      class="my-4 btn btn-secondary"
+      type="button"
+    >
+      Show my Favorites
+    </button>
+    <h4>
+      You don't have any favorites!
+    </h4>
+  </div>
+</DocumentFragment>
+`;
