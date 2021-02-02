@@ -13,7 +13,7 @@ import Container from 'react-bootstrap/esm/Container';
 const BASE_URL = 'https://v2.jokeapi.dev';
 
 // TODO 
-// 2. update existing tests (snapshots, etc)
+// 1. Implement exponential backoff in use
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
@@ -34,11 +34,14 @@ export const App = () => {
     const getJoke = async () => {
       if (!joke) {
         setIsLoading(() => true);
-        const response = await axios.get(`${BASE_URL}/joke/any`);
-        const newJoke: jokeData = response.data;
-        console.log(newJoke);
-        setJoke(newJoke);
-        setIsLoading(() => false);
+        try {
+          const response = await axios.get(`${BASE_URL}/joke/any`);
+          const newJoke: jokeData = response.data;
+          setJoke(newJoke);
+          setIsLoading(() => false);
+        } catch (e) {
+          console.log(e);
+        }
       }
     }
     getJoke();

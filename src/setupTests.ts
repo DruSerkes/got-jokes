@@ -31,5 +31,5 @@ export const setFavorites = jest.fn(() => console.log('setting favorites'));
 export const clearFavorites = jest.fn(() => console.log('clearing favorites'));
 export const saveFavoriteJoke = jest.fn(() => console.log('saving favorite joke'));
 export const spy = jest.spyOn(axios, "get");
-const testResponse = { data: testJoke };
+export const testResponse = { data: testJoke };
 spy.mockResolvedValue(testResponse)
