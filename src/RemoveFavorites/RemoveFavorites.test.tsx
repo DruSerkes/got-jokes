@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { fireEvent, render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { RemoveFavorites } from './RemoveFavorites';
+import { clearFavorites } from '../setupTests';
 
 describe('RemoveFavorites tests', () => {
-    const clearFavorites = jest.fn().mockImplementation(() => console.log('calling clearFavorites'));
 
     it('should render without breaking and match snapshot', () => {
         const { asFragment } = render(<RemoveFavorites viewingFavorites haveFavorites clearFavorites={clearFavorites} />);
