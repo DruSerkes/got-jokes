@@ -4,25 +4,6 @@ import { AppButtons } from './AppButtons';
 import { testJoke } from '../setupTests';
 
 describe('AppButtons tests', () => {
-    export const testJoke = {
-        "error": false,
-        "category": 'dark',
-        "type": 'single',
-        "joke": 'test joke',
-        "flags": {
-            "nsfw": false,
-            "religious": false,
-            "political": false,
-            "racist": false,
-            "sexist": false,
-            "explicit": false
-        },
-        "id": 13,
-        "safe": true,
-        "lang": 'en',
-        'setup': 'test setup',
-        'delivery': 'test delivery'
-    };
     const setJoke = jest.fn(() => console.log('setting joke'));
     const setViewingFavorites = jest.fn(() => console.log('viewing favorites'));
     const setFavorites = jest.fn(() => console.log('setting favorites'));
