@@ -3,6 +3,7 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import axios from 'axios';
 
 export const testJoke = {
     "error": false,
@@ -29,3 +30,6 @@ export const setViewingFavorites = jest.fn(() => console.log('viewing favorites'
 export const setFavorites = jest.fn(() => console.log('setting favorites'));
 export const clearFavorites = jest.fn(() => console.log('clearing favorites'));
 export const saveFavoriteJoke = jest.fn(() => console.log('saving favorite joke'));
+export const spy = jest.spyOn(axios, "get");
+const testResponse = { data: testJoke };
+spy.mockResolvedValue(testResponse)
