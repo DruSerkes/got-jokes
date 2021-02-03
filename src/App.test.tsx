@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { App } from './App';
-import { spy, testResponse } from './setupTests';
+import { spy } from './setupTests';
 
 describe('App tests', () => {
   it('renders without breaking and matches snapshot', () => {
