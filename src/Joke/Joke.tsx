@@ -3,6 +3,7 @@ import { jokeData } from '../types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner'
 
 interface JokeProps {
     isLoading: boolean;
@@ -11,10 +12,11 @@ interface JokeProps {
 
 export const Joke = ({ joke, isLoading }: JokeProps) => {
     return (
-        <>
+        <Container className='Joke'>
+            {isLoading && <Spinner animation='grow' />}
             {
                 !isLoading && joke?.type === 'twopart' &&
-                <Container className='Joke'>
+                <>
                     <Row className='Joke-Setup my-3'>
                         <Col>
                             {joke?.setup}
@@ -25,18 +27,16 @@ export const Joke = ({ joke, isLoading }: JokeProps) => {
                             {joke?.delivery}
                         </Col>
                     </Row>
-                </Container>
+                </>
             }
             {
                 !isLoading && joke?.type === 'single' &&
-                <Container className='Joke'>
-                    <Row className='my-3'>
-                        <Col>
-                            {joke?.joke}
-                        </Col>
-                    </Row>
-                </Container>
+                <Row className='my-3'>
+                    <Col>
+                        {joke?.joke}
+                    </Col>
+                </Row>
             }
-        </>
+        </Container>
     )
 }
