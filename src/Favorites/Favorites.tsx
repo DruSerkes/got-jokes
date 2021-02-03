@@ -11,6 +11,7 @@ export const Favorites = ({ favorites, clearFavorites }: FavoritesProps) => {
     return (
         <>
             <h3>Favorites</h3>
+            {!favorites?.length && <h4>You don't have any favorites!</h4>}
             <ul className='Favorites rounded list-group my-3'>
                 {favorites?.map(fav => <Favorite key={fav.id} joke={fav} clearFavorites={clearFavorites} />)}
             </ul>

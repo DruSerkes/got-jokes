@@ -20,8 +20,6 @@ export const RemoveFavorites = ({ viewingFavorites, haveFavorites, clearFavorite
     };
     return (
         <>
-            {!haveFavorites && <h4>You don't have any favorites!</h4>}
-
             { viewingFavorites && haveFavorites &&
                 (<Button
                     variant="warning"
