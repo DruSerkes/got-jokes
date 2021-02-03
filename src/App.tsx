@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import axios from 'axios';
+import { getJokeWithRetry } from './helpers'
 import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
 import { Favorites } from './Favorites/Favorites';
@@ -31,20 +32,25 @@ export const App = () => {
 
   // Get a joke if you don't have one
   useEffect(() => {
-    const getJoke = async () => {
-      if (!joke) {
-        setIsLoading(() => true);
-        try {
-          const response = await axios.get(`${BASE_URL}/joke/any`);
-          const newJoke: jokeData = response.data;
-          setJoke(newJoke);
-          setIsLoading(() => false);
-        } catch (e) {
-          console.log(e);
-        }
-      }
+    // const getJoke = async () => {
+    //   if (!joke) {
+    //     setIsLoading(() => true);
+    //     try {
+    //       const response = await axios.get(`${BASE_URL}/joke/any`);
+    //       const newJoke: jokeData = response.data;
+    //       setJoke(newJoke);
+    //       setIsLoading(() => false);
+    //     } catch (e) {
+    //       console.log(e);
+    //     }
+    //   }
+    // }
+    // getJoke();
+    if (!joke) {
+      setIsLoading(true);
+      getJokeWithRetry().then(newJoke => setJoke(newJoke));
+      setIsLoading(false);
     }
-    getJoke();
   }, [joke]);
 
   return (

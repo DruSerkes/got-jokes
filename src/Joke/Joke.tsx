@@ -13,7 +13,7 @@ interface JokeProps {
 export const Joke = ({ joke, isLoading }: JokeProps) => {
     return (
         <Container className='Joke'>
-            {isLoading && <Spinner animation='grow' />}
+            {!joke && <Spinner animation='grow' />}
             {
                 !isLoading && joke?.type === 'twopart' &&
                 <>
