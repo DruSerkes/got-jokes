@@ -11,7 +11,6 @@ import Container from 'react-bootstrap/esm/Container';
 
 
 // TODO 
-// 1. Test exponential backoff 
 // 2. Add tweet joke button (and test) 
 // href=`https://twitter.com/intent/tweet?text=${JOKE_TEXT}`
 // 3. Add copy joke button (and test)
