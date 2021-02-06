@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { getJokeWithRetry } from './helpers'
+import { getJokeWithRetry } from './helpers/helpers';
 import { jokeData } from './types';
 import { Joke } from './Joke/Joke'
 import { Favorites } from './Favorites/Favorites';
