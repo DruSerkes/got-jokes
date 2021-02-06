@@ -19,7 +19,6 @@ describe('getJokeWithRetry tests', () => {
 
         try {
             const result = await getJokeWithRetry();
-            console.log({ result });
         } catch (e) {
         };
 
