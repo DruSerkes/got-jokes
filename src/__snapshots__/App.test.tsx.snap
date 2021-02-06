@@ -17,7 +17,6 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
     >
       <button
         class="my-4 btn btn-primary"
-        disabled=""
         type="button"
       >
         Make Me Laugh!
@@ -34,9 +33,13 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
       >
         Show my Favorites
       </button>
-      <h4>
-        You don't have any favorites!
-      </h4>
+    </div>
+    <div
+      class="Joke container"
+    >
+      <div
+        class="spinner-grow"
+      />
     </div>
   </div>
 </DocumentFragment>

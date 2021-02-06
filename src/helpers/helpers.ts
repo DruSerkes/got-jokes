@@ -12,9 +12,11 @@ export const getJokeWithRetry = async (depth = 0): Promise<jokeData> => {
         return newJoke
     } catch (error) {
         if (depth > 7) throw error;
-
+        
+        console.log({ error })
         await wait(2 ** depth * 10);
-        return getJokeWithRetry(depth++);
+        depth++;
+        return getJokeWithRetry(depth);
     }
 };
 
