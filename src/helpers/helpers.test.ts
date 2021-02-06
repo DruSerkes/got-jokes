@@ -18,7 +18,7 @@ describe('getJokeWithRetry tests', () => {
         expect(spy).toHaveBeenCalledTimes(0);
 
         try {
-            const result = await getJokeWithRetry();
+            await getJokeWithRetry();
         } catch (e) {
         };
 

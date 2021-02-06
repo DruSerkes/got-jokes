@@ -38,8 +38,14 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
       class="Joke container"
     >
       <div
-        class="spinner-grow"
-      />
+        class="my-3 row"
+      >
+        <div
+          class="col"
+        >
+          test joke
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
