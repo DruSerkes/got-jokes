@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { jokeData } from './types';
+import { jokeData } from '../types';
 
 const BASE_URL = 'https://v2.jokeapi.dev';
 

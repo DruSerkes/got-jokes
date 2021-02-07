@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { SaveJoke } from '../SaveJoke/SaveJoke';
 import { RemoveFavorites } from '../RemoveFavorites/RemoveFavorites';
 import { jokeData } from '../types';
+import { TweetButton } from '../TweetButton/TweetButton';
 
 interface AppButtonsProps {
     viewingFavorites: boolean;
@@ -46,6 +47,8 @@ export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, setJo
                 className='my-4'>
                 {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
             </Button>
+
+            {joke && !viewingFavorites && <TweetButton joke={joke} />}
 
             <RemoveFavorites clearFavorites={clearFavorites} haveFavorites={!!favorites.length} viewingFavorites={viewingFavorites} />
         </ButtonGroup>
