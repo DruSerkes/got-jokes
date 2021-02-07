@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TweetButton tests should render and match snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="my-4 TweetButton btn btn-outline-dark"
+    href="https://twitter.com/intent/tweet?text=test joke"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="tweet this joke"
+  />
+</DocumentFragment>
+`;
