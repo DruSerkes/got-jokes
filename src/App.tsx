@@ -8,6 +8,7 @@ import { Favorites } from './Favorites/Favorites';
 import { AppButtons } from './AppButtons/AppButtons';
 import Container from 'react-bootstrap/esm/Container';
 import { Footer } from './Footer/Footer';
+import { Disclaimer } from './Disclaimer/Disclaimer';
 import './App.css';
 
 
@@ -39,6 +40,7 @@ export const App = () => {
     <>
       <Container className="App">
         <h1 className='h1 my-4'>Got Jokes</h1>
+        <Disclaimer />
 
         <AppButtons
           viewingFavorites={viewingFavorites}

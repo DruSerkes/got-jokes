@@ -10,6 +10,23 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
     >
       Got Jokes
     </h1>
+    <small
+      class="mb-4"
+    >
+      <strong>
+        Disclaimer:
+      </strong>
+       Jokes are being served via 
+      <a
+        href="https://v2.jokeapi.dev/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        JokeAPI
+      </a>
+      <br />
+      Please report any offensive, racist, sexist, or generally horrible / unfunny content
+    </small>
     <div
       aria-label="Main App Buttons"
       class="Buttons btn-group"
