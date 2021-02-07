@@ -33,6 +33,13 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
       >
         Show my Favorites
       </button>
+      <a
+        class="my-4 TweetButton btn btn-outline-dark"
+        href="https://twitter.com/intent/tweet?text=test joke"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="tweet this joke"
+      />
     </div>
     <div
       class="Joke container"
@@ -48,5 +55,19 @@ exports[`App tests renders without breaking and matches snapshot 1`] = `
       </div>
     </div>
   </div>
+  <footer
+    class="Footer"
+  >
+    <p>
+      <a
+        data-testid="footer"
+        href="https://github.com/druserkes"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Dru Serkes ©2021
+      </a>
+    </p>
+  </footer>
 </DocumentFragment>
 `;
