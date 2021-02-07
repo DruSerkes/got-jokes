@@ -4,5 +4,9 @@
 }
 
 .App {
+  height: 95vh;
   text-align: center;
+  margin-bottom: auto;
+  position: relative;
+  overflow-y: scroll;
 }
