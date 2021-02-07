@@ -11,9 +11,6 @@ import { Footer } from './Footer/Footer';
 import './App.css';
 
 
-
-// TODO 
-// 1. Add footer (and test)
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
