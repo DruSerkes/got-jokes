@@ -11,9 +11,7 @@ import Container from 'react-bootstrap/esm/Container';
 
 
 // TODO 
-// 1. Add tweet joke button (and test) 
-// href=`https://twitter.com/intent/tweet?text=${JOKE_TEXT}`
-// 2. Add footer (and test)
+// 1. Add footer (and test)
 export const App = () => {
   const [joke, setJoke] = useState<jokeData | undefined>(undefined);
   const [favorites, setFavorites] = useLocalStorage('favorites');
