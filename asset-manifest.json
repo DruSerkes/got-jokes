@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/got-jokes/static/css/main.6eae91cd.chunk.css",
-    "main.js": "/got-jokes/static/js/main.c24ed4b6.chunk.js",
-    "main.js.map": "/got-jokes/static/js/main.c24ed4b6.chunk.js.map",
+    "main.js": "/got-jokes/static/js/main.1dbf85e8.chunk.js",
+    "main.js.map": "/got-jokes/static/js/main.1dbf85e8.chunk.js.map",
     "runtime-main.js": "/got-jokes/static/js/runtime-main.640d8e68.js",
     "runtime-main.js.map": "/got-jokes/static/js/runtime-main.640d8e68.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/got-jokes/static/css/2.20aa2d7b.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.7dc067df.chunk.js",
     "static/css/main.6eae91cd.chunk.css",
-    "static/js/main.c24ed4b6.chunk.js"
+    "static/js/main.1dbf85e8.chunk.js"
   ]
 }
