@@ -6,18 +6,18 @@ const BASE_URL = 'https://v2.jokeapi.dev';
 export const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 export const getJokeWithRetry = async (depth = 0): Promise<jokeData> => {
-    try {
-        const response = await axios.get(`${BASE_URL}/joke/any?safe-mode`);
-        const newJoke: jokeData = response.data;
-        return newJoke
-    } catch (error) {
-        if (depth > 7) throw error;
+  try {
+    const response = await axios.get(`${BASE_URL}/joke/any?safe-mode`);
+    const newJoke: jokeData = response.data;
+    return newJoke
+  } catch (error: any) {
+    if (depth > 7) throw error;
 
-        console.log({ error })
-        await wait(2 ** depth * 10);
-        depth++;
-        return getJokeWithRetry(depth);
-    }
+    console.log({ error })
+    await wait(2 ** depth * 10);
+    depth++;
+    return getJokeWithRetry(depth);
+  }
 };
 
 
