@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Button from 'react-bootstrap/Button';
+import { TweetButton } from '../TweetButton/TweetButton';
 import { jokeData } from '../types';
 import './Favorite.css';
 
@@ -11,23 +12,16 @@ interface FavoritesProps {
 export const Favorite = ({ joke, clearFavorites }: FavoritesProps) => {
   const handleRemove = () => clearFavorites(joke.id);
   return (
-    <>
+    <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
       {joke.type === 'twopart'
-        ? (
-          <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
-            {joke?.setup}
-            <br />
-            {joke?.delivery}
-            <Button onClick={handleRemove} className="Favorite-removeButton">X</Button>
-          </li>
-        )
-        : (
-          <li className='py-3 list-group-item-dark border-bottom rounded border-dark'>
-            {joke?.joke}
-            <Button onClick={handleRemove} className="Favorite-removeButton">X</Button>
-          </li>
-        )
-      }
-    </>
+        ? (<>
+          {joke?.setup}
+          <br />
+          {joke?.delivery}
+        </>)
+        : joke?.joke}
+      <TweetButton joke={joke} bootstrapClasses={['py-3', 'px-1']} />
+      <Button onClick={handleRemove} className="Favorite-removeButton" variant='link'>X</Button>
+    </li>
   )
 }

@@ -48,7 +48,7 @@ export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, setJo
         {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
       </Button>
 
-      {joke && !viewingFavorites && <TweetButton joke={joke} />}
+      {joke && !viewingFavorites && <TweetButton joke={joke} bootstrapClasses={['my-4']} />}
 
       <RemoveFavorites clearFavorites={clearFavorites} haveFavorites={!!favorites.length} viewingFavorites={viewingFavorites} />
     </ButtonGroup>

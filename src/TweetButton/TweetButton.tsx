@@ -4,10 +4,11 @@ import { jokeData } from '../types';
 import './TweetButton.css';
 
 interface TweetButtonProps {
-  joke: jokeData
+  joke: jokeData;
+  bootstrapClasses?: string[];
 };
 
-export const TweetButton = ({ joke }: TweetButtonProps) => {
+export const TweetButton = ({ joke, bootstrapClasses }: TweetButtonProps) => {
   const tweetText = joke.joke ? joke.joke : `${joke.setup} ${joke.delivery}`;
   const tweetLink = `https://twitter.com/intent/tweet?text=${tweetText}`;
   return (
@@ -18,7 +19,7 @@ export const TweetButton = ({ joke }: TweetButtonProps) => {
       href={tweetLink}
       target="_blank"
       rel="noopener noreferrer"
-      className='my-4 TweetButton'
+      className={`TweetButton ${bootstrapClasses ? bootstrapClasses.join(' ') : ''}`}
     />
   );
 };
