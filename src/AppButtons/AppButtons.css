@@ -1,0 +1,20 @@
+.ShowFavoritesButton {
+  position: relative;
+}
+
+.ShowFavoritesButton::after {
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  color: #0F0F0F;
+  content: attr(data-favorites);
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: center;
+  height: 1.25rem;
+  position: absolute;
+  right: -0.75rem;
+  top: -0.75rem;
+  width: 1.25rem;
+  z-index: 10;
+}

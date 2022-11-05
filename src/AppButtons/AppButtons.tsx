@@ -5,6 +5,7 @@ import { SaveJoke } from '../SaveJoke/SaveJoke';
 import { RemoveFavorites } from '../RemoveFavorites/RemoveFavorites';
 import { jokeData } from '../types';
 import { TweetButton } from '../TweetButton/TweetButton';
+import './AppButtons.css';
 
 interface AppButtonsProps {
   viewingFavorites: boolean;
@@ -44,7 +45,9 @@ export const AppButtons = ({ viewingFavorites, isLoading, joke, favorites, setJo
       <Button
         variant="secondary"
         onClick={handleShowFavorites}
-        className='my-4'>
+        className={`${favorites.length ? 'ShowFavoritesButton' : ''} my-4`}
+        data-favorites={favorites.length}
+      >
         {!viewingFavorites ? 'Show my Favorites' : 'Hide my Favorites'}
       </Button>
 
